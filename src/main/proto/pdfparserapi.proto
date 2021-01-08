@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "eu.redbyte.pdfparser.grpc";
+option java_outer_classname = "PDFParserApi";
+
+package pdfparserapi;
+
+message ParserRequest {
+    bytes content = 1;
+}
+
+message ParserResponse {
+    string text = 1;
+}
+
+service PDFParser {
+    rpc Parse (ParserRequest) returns (ParserResponse) {}
+}
